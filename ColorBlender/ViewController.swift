@@ -158,5 +158,24 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func randomClick(_ sender: Any, forEvent event: UIEvent) {
+        let red = CGFloat(randomDouble()), green = CGFloat(randomDouble()), blue = CGFloat(randomDouble())
+        
+        redSlider.value = Float(red)
+        greenSlider.value = Float(green)
+        blueSlider.value = Float(blue)
+        
+        currentView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+        
+        UpdateBlendedViews()
+        UpdateInfoView()
+        
+    }
+    
+    func randomDouble() -> Double {
+        let valueDouble: Double = Double(arc4random_uniform(UINT32_MAX)) / Double(UINT32_MAX)
+        return valueDouble
+    }
+    
 }
 
